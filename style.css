@@ -79,6 +79,7 @@ flex-direction: column;
     padding: var(--padding-m) var(--padding-s);  
 gap: var(--padding-m);
 border-radius: var(--border-radius-m);
+transition: 0.7s all cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 section .task-column.hover-over{
