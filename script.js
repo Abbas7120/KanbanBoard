@@ -31,3 +31,19 @@ column.classList.remove('hover-over')})
 addDragEventonColumn(todo)
 addDragEventonColumn(progress)
 addDragEventonColumn(done)
+
+const modalbg = document.querySelector('.modal .bg')
+const toggleModalBtn = document.querySelector('#toggle-modal')
+const modal = document.querySelector('.modal')
+const addTaskButton = document.querySelector('#add-new-task')
+
+const taskTitle = document.querySelector('#task-title')
+const taskDesc = document.querySelector('#task-desc')
+
+toggleModalBtn.addEventListener("click", () => {
+  modal.classList.add("active")
+})
+
+modalbg.addEventListener("click", () => {
+  modal.classList.remove("active")
+})
