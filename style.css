@@ -130,7 +130,7 @@ color: var(--primary-text-color);
     justify-content:center;
 }
 
-.modal .active{
+.modal.active{
     display: flex;
 }
 .modal .center{

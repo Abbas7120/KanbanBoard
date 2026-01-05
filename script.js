@@ -37,13 +37,10 @@ const toggleModalBtn = document.querySelector('#toggle-modal')
 const modal = document.querySelector('.modal')
 const addTaskButton = document.querySelector('#add-new-task')
 
-const taskTitle = document.querySelector('#task-title')
-const taskDesc = document.querySelector('#task-desc')
 
 toggleModalBtn.addEventListener("click", () => {
-  modal.classList.add("active")
+  modal.classList.toggle("active")
 })
 
 modalbg.addEventListener("click", () => {
-  modal.classList.remove("active")
-})
+ modal.classList.remove("active")})
