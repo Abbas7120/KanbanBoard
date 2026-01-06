@@ -12,6 +12,7 @@ tasks.forEach(task=>{
         dragElement=task;})
 })
 
+const columns=[todo,progress,done]
 
 function addDragEventonColumn(column){
 column.addEventListener('dragenter',(e)=>{e.preventDefault();column.classList.add("hover-over")})  
@@ -21,11 +22,22 @@ column.addEventListener('dragleave',(e)=>{e.preventDefault();column.classList.re
 column.addEventListener('dragover',(e)=>{e.preventDefault();
 
 })
-column.addEventListener('drop',(e)=>{e.preventDefault();
+column.addEventListener('drop',(e)=>{
+  e.preventDefault();
 console.log('Dropped',dragElement,column)
 
 column.appendChild(dragElement)
-column.classList.remove('hover-over')})
+column.classList.remove('hover-over')
+
+columns.forEach(col=>{
+  const tasks=col.querySelectorAll(".task")
+  const count=col.querySelector(".right")
+
+ count.innerText=tasks.length;
+})
+
+
+})
 }
 
 addDragEventonColumn(todo)
@@ -61,6 +73,14 @@ addTaskButton.addEventListener("click",()=>{
   `
 
   todo.appendChild(div)
+
+  div.addEventListener("drag",(e)=>{dragElement=div})
+columns.forEach(col=>{
+  const tasks=col.querySelectorAll(".task")
+  const count=col.querySelector(".right")
+
+ count.innerText=tasks.length;
+})
 
   modal.classList.remove('active')
 
