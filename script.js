@@ -44,3 +44,24 @@ toggleModalBtn.addEventListener("click", () => {
 
 modalbg.addEventListener("click", () => {
  modal.classList.remove("active")})
+
+
+addTaskButton.addEventListener("click",()=>{
+  const taskTitle=document.querySelector("#task-title-input").value
+  const taskDescription=document.querySelector("#task-desc-input").value
+
+  const div=document.createElement('div')
+  div.classList.add("task")
+  div.setAttribute("draggable","true")
+
+  div.innerHTML=
+ ` <h2>${taskTitle}</h2>
+  <p>${taskDescription}</p>
+  <button>Delete</button>
+  `
+
+  todo.appendChild(div)
+
+  modal.classList.remove('active')
+
+}) 
