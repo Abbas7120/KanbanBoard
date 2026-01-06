@@ -1,3 +1,7 @@
+let tasksData={
+
+}
+
 const todo=document.querySelector('#todo')
 const progress=document.querySelector('#progress')
 const done=document.querySelector('#done')
@@ -5,6 +9,16 @@ const done=document.querySelector('#done')
 const tasks=document.querySelectorAll('.task')
 
 let dragElement=null
+
+if(localStorage.getItem('tasks')){
+  const data=JSON.parse(localStorage.getItem("tasks"))
+console.log(data)
+  for (const col in data){
+   // console.log(col,data[col])
+   const column=document.querySelector(`#${col}`)
+   
+  }
+}
 
 tasks.forEach(task=>{
     task.addEventListener("drag",(e)=>{
@@ -75,9 +89,19 @@ addTaskButton.addEventListener("click",()=>{
   todo.appendChild(div)
 
   div.addEventListener("drag",(e)=>{dragElement=div})
-columns.forEach(col=>{
+
+  columns.forEach(col=>{
   const tasks=col.querySelectorAll(".task")
   const count=col.querySelector(".right")
+
+tasksData[col.id]=Array.from(tasks).map(t=>{
+  return {
+    title:t.querySelector("h2").innerText,
+    desc:t.querySelector("p").innerText
+  }
+})
+console.log(tasksData)
+localStorage.setItem("tasks",JSON.stringify(tasksData))
 
  count.innerText=tasks.length;
 })
