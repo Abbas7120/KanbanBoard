@@ -192,7 +192,9 @@ addTask(taskTitle,taskDescription,todo)
 
 //  count.innerText=tasks.length;
 // })
+
 updateTaskCount()
   modal.classList.remove('active')
-
+document.querySelector("#task-title-input").value=""
+document.querySelector("#task-desc-input").value=""
 }) 
